@@ -21,16 +21,13 @@ const endPointApi = "https://flynn.boolean.careers/exercises/api/random/mail";
 // evento su bottone
 genera.addEventListener("click", getEmail);
 
-
-// variabile di accumulo email
-
 // funzione di chiamata per generare email
 function getEmail() {
     // rendo vuota la lista ad ogni generazione
     emailListOutput.innerHTML = ""
     // ciclo per generare 10 email
     for (let i = 0; i < 10; i++) {
-
+        // chiamata API
         axios.get(endPointApi)
             .then(rispApi => {
                 emailListOutput.innerHTML += `<li>${rispApi.data.response}</li>`;
